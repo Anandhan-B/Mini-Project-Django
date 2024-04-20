@@ -1,0 +1,25 @@
+{% extends "base_page.html" %}
+{% block body %}
+<div class="container">
+    <div class="row flex justify-content-between pro-one">
+        <div class="img2 col-lg-5 " style="box-sizing: border-box;padding: 30px;">
+            <img src="{{Product.product_image.url}}" alt="" class="image col-xs-6 col-sm-12 col-lg-12 mt-1 text-sm-center  w-70 h-70 ">
+        </div>
+        <div class="productdetail col-lg-5">
+            <h1 class="pro-title">{{Product.title}}</h1>
+            <h5 class="pro-price">Rs.{{Product.selling_price}}/-</h5>
+            <br>
+            <h4>Product Features</h4>
+            <ul class="fs-5">
+                <li>{{Product.description}}</li>
+            </ul>
+          
+                <form action="{% url 'Home:addtocart' %}" class="d-inline" method="get">
+                <input type="hidden" name="prod-id" value="{{Product.id}}">
+                <button type="submit" class="btn btn-primary shadow-px-5 py-2">Add To Cart</button>
+                </form>
+                
+        </div>
+    </div>
+</div>
+{% endblock body %}

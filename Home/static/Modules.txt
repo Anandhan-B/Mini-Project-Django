@@ -1,0 +1,21 @@
+1.HOME
+2.ABOUT
+3.CONTACT
+4.GALLERY
+5.LOCATION
+6.SHOP
+7-26.SERVICES 20
+27.LOGIN
+28.ADMIN
+29.VERIFICATION
+30.Payment
+31.SHA-256 Password Encrption^
+32.UUID
+33.HotKeys
+34.Loading [Top & Page Between]
+35.Responsive
+36.Offline Page
+37.Amazon Integration[If Possible]
+38.Footer
+39.Achievments
+40.Customer Reviews

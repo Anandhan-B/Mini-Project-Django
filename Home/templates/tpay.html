@@ -1,0 +1,9 @@
+<html>
+<body>
+    <h1>Pay Now</h1>
+    <form method="post" action="{% url 'Home:initiate_payment' %}" target="_blank">
+        {% csrf_token %}
+        <input type="submit" value="Pay {{ amount }} INR">
+    </form>
+</body>
+</html>

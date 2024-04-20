@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	<link rel="shortcut icon" href="{% static 'Images/favicons.png' %}" type="image/x-icon">
+  <link rel="stylesheet" href="{% static 'about.css' %}">
+	<title>VS Security Systems - CCTV and Web Services</title>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <input type="checkbox" id="nav-check">
+      <div class="nav-header">
+        <div class="nav-title"><a href="{% url 'Home:homepages' %}">
+        <img id="logo0" src="{% static 'logo.png' %}" alt="logo"><span style="color: #F99417;">SECURITY</span><span> SYSTEMS</span>
+        </a></div>
+      </div>
+      <div class="nav-btn">
+        <label for="nav-check">
+        <span></span>
+        <span></span>
+        <span></span>
+        </label>
+      </div>
+      
+      <div class="nav-links">
+        <a id="serv" href="{% url 'Home:services' %}">SERVICES</a>
+        <a href="{% url 'Home:shop' %}">SHOP</a>
+        <a href="{% url 'Home:about' %}">ABOUT</a>
+        <a href="{% url 'Home:gallery' %}" >GALLERY</a>
+        <a href="{% url 'Home:contact' %}">CONTACT US</a>
+        {% if request.user.is_authenticated %}
+        <div class="dropdown">
+        <button class="dropbtn">{{request.user}} <i id="rot" style="font-size: smaller;color: #262525;" class="fa-solid fa-angle-down"></i></button>
+        <div class="dropdown-content">
+          <a href="{% url 'Home:profile' %}">Profile</a>
+          <a href="{% url 'Home:orders' %}">Orders</a>
+          <a href="{% url 'Home:passchange' %}">Change Password</a>
+          <a href="{% url 'Home:showcart' %}">Cart</a>
+          <a href="{% url 'Home:logout' %}">Logout</a>
+        </div>
+        </div>
+        {% else %}
+        <a href="{% url 'Home:accountPage' %}"><i class="fa-solid fa-right-to-bracket fa-shake"></i></a>
+        {% endif %}
+      </div>
+      </div>
+    </header>
+    <div class="space"></div>
+    <div class="about-content">
+      <h1> About Us </h1>
+
+     <p> Welcome to VS Security Systems, your trusted partner in safeguarding what matters most. With a legacy spanning five years, we have been dedicatedly serving individuals and businesses with top-notch security solutions. What sets us apart is not just our technology but the relentless passion and hard work of a single visionary.</p>
+
+      <h2>🛡️ Our Story</h2>
+      
+      <p>For half a decade, VS Security Systems has stood as a beacon of security excellence. What started as a one-person endeavor has blossomed into a company that champions protection, innovation, and unwavering dedication. Our founder's commitment to creating a safer world has fueled our growth, proving that even a single individual's hard work can make a remarkable difference.</p>
+      
+      <h2>💼 Founder's Journey</h2>
+      
+      <p>Behind every security solution we provide is the story of our founder. With a clear vision and a heart set on ensuring safety, our founder embarked on a journey that has led to five years of continuous growth. Their dedication has been the driving force behind our success, and their commitment to staying ahead in the security industry has been our guiding light.</p>
+
+
+     <h2> 🔒 Five Years of Excellence </h2>
+      
+      <p>Five years of serving the community with security solutions have taught us the value of trust, integrity, and innovation. Our journey has been about adapting to ever-evolving security needs, pioneering new technologies, and crafting bespoke solutions tailored to each client's unique requirements.</p>
+      
+      <h2>⚙️ Innovative Technology</h2>
+      
+      <p>At VS Security Systems, we embrace cutting-edge technology as a cornerstone of our services. Our commitment to innovation allows us to provide state-of-the-art security systems that offer real-time monitoring, smart alerts, and robust protection against potential threats.</p>
+      
+     <h2> 🤝 Client-Centric Approach</h2>
+      
+     <p> Our success is built on strong client relationships. Every interaction is a chance to understand your needs, concerns, and aspirations. Our founder's ethos of hard work, personal attention, and dedication to delivering the best solutions guides our interactions with each and every client.</p>
+      
+      <h2>🏆 A Future Built on Values</h2>
+      
+      <p>As we look to the future, we remain steadfast in our commitment to delivering security solutions that exceed expectations. Our founder's hard work and tireless effort will continue to inspire us as we innovate, collaborate, and strive for excellence in everything we do.</p>
+      
+     <p> At VS Security Systems, we're not just protecting spaces; we're safeguarding dreams, aspirations, and peace of mind. Join us on this journey as we continue to redefine security standards, one satisfied client at a time.</p>
+      
+     </div>
+    </div>
+    <!--Footer-->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-row">
+          <div class="footer-col">
+            <h4>company</h4>
+            <ul>
+              <li><a href="{% url 'Home:about' %}">about us</a></li>
+              <li><a href="{% url 'Home:services' %}">our services</a></li>
+              <li><a href="{% url 'Home:contact' %}">Contact us</a></li>
+              <li><a href="{% url 'Home:gallery' %}">Gallery</a></li>
+              <li><a href="{% url 'Home:FAQ' %}">FAQ</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-col">
+            <h4>online shop</h4>
+            <ul>
+              <li><a href="{% url 'Home:shop' %}">CCTV</a></li>
+              <li><a href="{% url 'Home:shop' %}">Cameras</a></li>
+              <li><a href="{% url 'Home:shop' %}">Hickvision</a></li>
+              <li><a href="{% url 'Home:shop' %}">Shop</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Main Branch</h4>
+            <p>
+              No 12 G1 AnandhaNilayam,<br>
+              Alagiri nagar 1st Street,<br>
+              Vadapalani, Chennai- 600026.<i class="fa-solid fa-dinosaur"></i>
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>follow us</h4>
+            <div class="footer-social-links">
+              <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+              <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+              <a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,543 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+/*font-family: 'Crimson Text', serif;*/
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	-webkit-font-smoothing:antialiased;
+	-moz-font-smoothing:antialiased;
+	-o-font-smoothing:antialiased;
+	text-rendering:optimizeLegibility;
+  transition: all .4s;
+  }
+  
+  body {
+	margin: 0px;
+	font-family: 'Teko', sans-serif;
+  background: linear-gradient(to right,rgb(122, 137, 149), lightblue);
+  background: #E4EBF5;
+  overflow-x: hidden;
+  }
+  .nav {
+	height: 70px;
+	width: 100%;
+  background:rgb(255, 255, 255,.9);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	position: fixed;
+  z-index:700;
+  }
+  .nav.visible
+  {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background:rgb(255, 255, 255,.4);
+    transition: .5s;
+
+  }
+  .nav:hover
+  {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background:rgb(255, 244, 244);
+    background: rgb(255, 255, 255);
+    transition: .5s;
+  }
+  
+  .nav > .nav-header {
+	display: inline;
+  }
+  
+  .nav > .nav-header > .nav-title {
+    cursor:default;
+	display: inline-block;
+	font-size: 27px;
+	color: #262525;
+	padding: 20px 10px 10px 10px;
+  }
+  
+  .nav-title img
+  {
+	margin-top: -30px;
+	float: left;
+  }
+  .nav-title:hover
+  {
+    transition: 0.1s;
+    text-shadow: 3px 0px 10px #888d8d;
+  }
+  .nav > .nav-btn {
+	display: none;
+  }
+  
+  .nav > .nav-links {
+	display: inline;
+	float: right;
+	font-size: 20px;
+  letter-spacing: 0px;
+  }
+  .nav > .nav-links > div:hover #rot{
+    transform: rotateX(180deg);
+    transition: all 0s;
+    padding-top: 3px;
+}
+  .nav-title a{
+    text-decoration: none;
+    color: #262525;
+  }
+  .nav > .nav-links > a,.nav > .nav-links > div {
+	display: inline-block;
+	padding: 25px 10px 13px 10px;
+  position: relative;
+	text-decoration: none;
+  color: #262525;
+  }
+  
+  .nav > .nav-links > a:hover {
+    transform: scale(1.1);
+	color: #FFA500;
+  transition: .3s;
+  }
+  .nav > .nav-links> a:after {    
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    top: 77.5%;
+    position: absolute;
+    background: orange;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+  .nav > .nav-links > a > i{
+	position: static !important;
+	top: 0;
+  }
+  .nav > .nav-links > a:hover:after { 
+    width: 70%; 
+    left: 10px; 
+  }
+  @media screen and (max-height: 300px) {
+    ul {
+      margin-top: 40px;
+    }
+  }
+  
+  .nav > #nav-check {
+	display: none;
+  }
+  
+  @media (max-width:600px) {
+	.nav > .nav-btn {
+	  display: inline-block;
+	  position: absolute;
+	  right: 0px;
+	  top: 10px;
+	}
+	.nav > .nav-btn > label {
+	  display: inline-block;
+	  width: 50px;
+	  height: 50px;
+	  padding: 13px;
+	}
+	.nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+	  background-color: rgba(0, 0, 0, 0.3);
+	}
+	.nav > .nav-btn > label > span {
+	  display: block;
+	  width: 25px;
+	  height: 10px;
+	  border-top: 2px solid #eee;
+	}
+	.nav > .nav-links {
+	  position: absolute;
+	  display: block;
+	  width: 100%;
+	  background-color: #ffffff;
+	  height: 0px;
+	  transition: all 0.3s ease-in;
+	  overflow-y: hidden;
+	  top: 50px;
+	  left: 0px;
+	}
+	.nav > .nav-links > a {
+	  display: block;
+	  width: 100%;
+	}
+	.nav > #nav-check:not(:checked) ~ .nav-links {
+	  height: 0px;
+	}
+	.nav > #nav-check:checked ~ .nav-links {
+	  height: calc(100vh - 50px);
+	  overflow-y: auto;
+	}
+  }
+.space
+{
+  width: 100%;
+  height: 70px;
+  margin-bottom: 20px;
+}
+
+/*Animation*/
+.me {
+	display: block;
+	margin: 2em 15em;
+	margin-bottom: 3em;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	position: relative;
+	z-index: 2;
+}
+.social {
+	text-align: center;
+	font-size: 2.5em;
+	color: #555;
+	overflow: hidden;
+}
+.social a {
+	color: inherit;
+	text-decoration: none;
+}
+.social i {
+	margin: 0.3em;
+	cursor: pointer;
+	transition: color 300ms ease, margin-top 300ms ease;
+	transform: translateZ(0);
+}
+.social i:hover {
+	margin-top: -1px;
+}
+.social i#twitter:hover {
+	color: #77ddf6;
+}
+.social i#github:hover {
+	color: black;
+}
+.social i#linkedin:hover {
+	color: #0177b5;
+}
+.social i#code:hover {
+	color: #29a329;
+}
+.social i#stack:hover {
+	color: #ed780e;
+}
+.social i#plus:hover {
+	color: #d43402;
+}
+.social i#mail:hover {
+	color: #f7b401;
+}
+
+/**/
+
+
+/*card*/
+/*Card*/
+@import url(https://fonts.googleapis.com/css?family=Lato);
+/* CENTERING */
+ .centered {
+	position: relative;
+	left: 0;
+	/* bring your own prefixes */
+	 transform: translate(-50%, -50%);
+}
+/* /end */
+ h3 {
+	 position: relative;
+	 left: 45%;
+}
+/* THE FRONT */
+ .front {
+	 background-image: url(Images/card.png);
+	 background-size: cover;
+}
+/* /end */
+/* THE BACK */
+ .back {
+	 background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/326221/bc-back.jpg);
+}
+ .back h1, .back p, .back .font-a-icons {
+	 color: #000;
+	 font-family: "Lato";
+	 margin-left: 30%;
+	 line-height: 90%;
+}
+ .back h1 {
+	 margin-top: 5%;
+}
+ .back p {
+	 font-size: 16px;
+	 padding-bottom: 15px;
+	 width: 35%;
+	 border-bottom: 2px solid #000;
+}
+ .back .bold {
+	 font-weight: bold;
+}
+ .back .font-a-icons {
+	 margin-top: 25px;
+}
+ .back .font-a-icons .ficon-group {
+	 margin-top: 8px;
+}
+ .back .font-a-icons span, .back .font-a-icons .link, .back .font-a-icons .fa, .back .font-a-icons a {
+	 color: #000;
+}
+ .back .font-a-icons .fa {
+	 font-size: 18px;
+}
+ .back .font-a-icons span, .back .font-a-icons a {
+	 font-size: 16px;
+}
+ .back .font-a-icons a, .back .font-a-icons .website {
+	 text-decoration: none;
+}
+ .back .font-a-icons a:hover, .back .font-a-icons .website:hover {
+	 color: #3f3f3f;
+}
+ .back .icon-box {
+	 position: relative;
+	 color: #000;
+	 font-size: 24px;
+	 height: 45px;
+	 width: 45px;
+	 padding: 5px;
+	 top: 75px;
+	 left: 30%;
+	 display: inline-block;
+	 border: 2px solid #000;
+	 margin: 5px;
+	 text-align: center;
+	 cursor: pointer;
+	 -webkit-transition: all ease 0.5s;
+	 -moz-transition: all ease 0.5s;
+	 transition: all ease 0.5s;
+}
+ .back .icon-box:hover {
+	 box-shadow: inset 0 50px 0 0 #000;
+	 color: #fff;
+}
+/* /end */
+/* THE FLIP EFFECT */
+/* entire container, keeps perspective */
+ .flip-container {
+	position: relative;
+	top: 0px;
+	left: 600px;
+	 perspective: 1000px;
+}
+/* flip the pane when hovered */
+ .flip-container:hover .flipper, .flip-container.hover .flipper {
+	 transform: rotateY(180deg);
+	 cursor: pointer;
+}
+ .flip-container, .front, .back {
+	 height: 350px;
+	 width: 600px;
+	 margin: auto;
+	 
+}
+ .flipper {
+	 transition: 0.5s;
+	 transform-style: preserve-3d;
+	 position: relative;
+}
+ .front, .back {
+	 backface-visibility: hidden;
+	 position: absolute;
+}
+ .front {
+	 z-index: 2;
+	 transform: rotateY(0deg);
+}
+ .back {
+	 background-color: #000;
+}
+ .back {
+	 transform: rotateY(180deg);
+}
+ .vertical.flip-container {
+	 position: relative;
+}
+ .vertical .back {
+	 transform: rotateX(180deg);
+}
+ .vertical.flip-container .flipper {
+	 transform-origin: 100% 400x;
+}
+ .vertical.flip-container:hover .flipper {
+	 transform: rotateX(-180deg);
+}
+/*details*/
+.details
+{
+	padding: 10px;
+	width: max-content;
+	height: max-content;
+}
+
+.title
+{
+	margin-left: 50px;
+	font-family: 'Crimson Text';
+	font-size: 23pt;
+}
+.next
+{
+	background: #7d7d7d19;
+	padding: 20px;
+	font-size: 17pt;
+	max-width: 500px;
+	margin:40px 0px 0px 40px ;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Style the dropdown button */
+.dropbtn {
+	text-transform: uppercase;
+	background-color: transparent;
+	font-family: Teko;
+	font-size: 20px;
+	border: none;
+	color:#262525;
+	cursor: pointer;
+	padding-right: 20px;
+  }
+  
+  /* Style the dropdown content (hidden by default) */
+  .dropdown-content {
+	display: none;
+	position: absolute;
+	right:10%;
+	background:white;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+  }
+  
+  /* Style the dropdown links */
+  .dropdown-content a {
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	color: #333;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {
+	background-color:rgb(255, 165, 0);
+	padding-left: 10px;
+	color: white;
+  }
+  
+  /* Show the dropdown content when the dropdown button is hovered over */
+  .dropdown:hover .dropdown-content {
+	display: block;
+  }
+   
+/*Footer*/
+footer
+{
+	display: none;
+  position: relative;
+  margin-top: 10px;
+  width: 100%;
+  height: max-content;
+}
+
+.footer-container{
+	max-width: 1170px;
+	margin:auto;
+}
+.footer-row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: #24262b;
+    padding: 70px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a,.footer-col p{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col p:hover
+{
+  transform: scale(1.5);
+}
+.footer-col .footer-social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .footer-social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
+
+
+

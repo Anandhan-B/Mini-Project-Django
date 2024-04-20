@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	<link rel="shortcut icon" href="favicons.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'base_services.css' %}">
+    <link rel="stylesheet" href="{% static 'rating.css' %}">
+    <link rel="stylesheet" href="{% static 'review.css' %}">
+    {% block head %}{% endblock head %}
+    <title>VS Security Systems - CCTV and Web Services</title>
+</head>
+<body>
+    <header>
+
+        <div class="nav">
+            <input type="checkbox" id="nav-check">
+            <div class="nav-header">
+              <div class="nav-title"><a href="{% url 'Home:homepages' %}">
+                <img id="logo0" src="{% static 'Images/logo.png' %}" alt="logo"><span style="color: #F99417;">SECURITY</span><span> SYSTEMS</span>
+              </a></div>
+            </div>
+            <div class="nav-btn">
+              <label for="nav-check">
+                <span></span>
+                <span></span>
+                <span></span>
+              </label>
+            </div>
+            
+            <div class="nav-links">
+              <a id="serv" href="{% url 'Home:services' %}">SERVICES</a>
+              <a href="{% url 'Home:shop' %}">SHOP</a>
+              <a href="{% url 'Home:about' %}">ABOUT</a>
+              <a href="{% url 'Home:gallery' %}" >GALLERY</a>
+              <a href="{% url 'Home:contact' %}">CONTACT US</a>
+              {% if request.user.is_authenticated %}
+                <div class="dropdown">
+                <button class="dropbtn">{{request.user}} <i id="rot" style="font-size: smaller;color: #262525;" class="fa-solid fa-angle-down"></i></button>
+                <div class="dropdown-content">
+                  <a href="{% url 'Home:profile' %}">Profile</a>
+                  <a href="{% url 'Home:orders' %}">Orders</a>
+                  <a href="{% url 'Home:passchange' %}">Change Password</a>
+                  <a href="{% url 'Home:showcart' %}">Cart</a>
+                  <a href="{% url 'Home:logout' %}">Logout</a>
+                </div>
+                </div>
+                {% else %}
+                <a href="{% url 'Home:accountPage' %}"><i class="fa-solid fa-right-to-bracket"></i></a>
+                {% endif %}
+            </div>
+          </div>
+        </header>
+        <div id="sidebar" class="sidebar">
+          <div class="sidebar-heading">
+             HARDWARE SERVICES
+          </div>
+          <ul class="sidebar-menu">
+           <li><i class="fas fa-chevron-right"></i>  <a href="{% url 'Home:CCTV' %}">CCTV CAMERA</a></li>
+            <li><i class="fas fa-chevron-right"></i> <a href="{% url 'Home:bio' %}">BIO MATRIC DEVICE</a></li>
+            <li><i class="fas fa-chevron-right"></i><a href="{% url 'Home:assemble' %}"> ASSEMBLED SYSTEMS</a></li>
+            <li><i class="fas fa-chevron-right"></i> <a href="{% url 'Home:LED' %}">LED DISPLAY</a></li>
+            <li><i class="fas fa-chevron-right"></i> <a href="{% url 'Home:LED-board' %}">LED SIGNAGE BOARD</a></li>
+            <li><i class="fas fa-chevron-right"></i> <a href="{% url 'Home:count' %}">COUNTING MACHINE</a></li>
+            <li><i class="fas fa-chevron-right"></i> <a href="{% url 'Home:bill' %}">BILLING MACHINE</a></li>
+            <li><i class="fas fa-chevron-right"></i><a href="{% url 'Home:paper' %}"> PAPER ROLL</a></li>
+            <li><i class="fas fa-chevron-right"></i> <a href="{% url 'Home:barcode' %}">BAR CODE STRIKER</a></li>
+          </ul>
+          
+          <div class="sidebar-heading">
+             SOFTWARE SERVICES
+          </div>
+          <ul class="sidebar-menu">
+            <li><i class="fas fa-chevron-right"></i> <a href="{% url 'Home:restaurant' %}">RESTAURANT SOFTWARE</a></li>
+            <li><i class="fas fa-chevron-right"></i> <a href="{% url 'Home:textiles' %}">TEXTILES SOFTWARE</a></li>
+            <li><i class="fas fa-chevron-right"></i> <a href="{% url 'Home:supermarket' %}">SUPERMARKET SOFTWARE</a></li>
+            <li><i class="fas fa-chevron-right"></i> <a href="{% url 'Home:agency' %}">AGENCY SOFTWARE</a></li>
+            <li><i class="fas fa-chevron-right"></i> <a href="{% url 'Home:accounting' %}">ACCOUNTING SOFTWARE</a></li>
+          </ul>
+          
+          <div class="sidebar-heading">
+             WEB SERVICES
+          </div>
+          <ul class="sidebar-menu">
+            <li><i class="fas fa-chevron-right"></i><a href="{% url 'Home:webdesign' %}"> WEBSITE DESIGNING</a></li>
+            <li><i class="fas fa-chevron-right"></i> <a href="{% url 'Home:hosting' %}">HOSTING</a></li>
+            <li><i class="fas fa-chevron-right"></i><a href="{% url 'Home:domin' %}"> DOMIN</a></li>
+            <li><i class="fas fa-chevron-right"></i> <a href="{% url 'Home:server' %}">SERVER</a></li>
+            <li><i class="fas fa-chevron-right"></i> <a href="{% url 'Home:mobile' %}">MOBILE APP</a></li>
+            <li><i class="fas fa-chevron-right"></i> <a href="{% url 'Home:bulksms' %}">BULK SMS PACKAGES</a></li>
+          </ul>
+        </div>
+
+        {% block body %}{% endblock body %}
+
+        <hr style="height: 5px;background-color: rgb(0,0,0,.7);margin-top: 20px;">
+        <h2 style="text-align: center;font-family: Arial;padding: 10px;font-size: xx-large;margin-top: 20px;">Customer Reviews</h2>
+<h3 style="float: left;margin-left: 400px;font-weight: lighter;">Post Your Review </h3>        
+<div class="container">
+<div class="post">
+<div class="text">Thanks for rating us!</div>
+<div class="edit">EDIT</div>
+</div>
+<div class="star-widget">
+<input type="radio" name="rate" id="rate-5">
+<label for="rate-5" class="fas fa-star"></label>
+<input type="radio" name="rate" id="rate-4">
+<label for="rate-4" class="fas fa-star"></label>
+<input type="radio" name="rate" id="rate-3">
+<label for="rate-3" class="fas fa-star"></label>
+<input type="radio" name="rate" id="rate-2">
+<label for="rate-2" class="fas fa-star"></label>
+<input type="radio" name="rate" id="rate-1">
+<label for="rate-1" class="fas fa-star"></label>
+<form action="#" method="post">
+{% csrf_token %}
+<header></header>
+<div class="textarea">
+  <textarea name="feedback" cols="30" placeholder="Describe your experience.."></textarea>
+</div>
+<div class="btn">
+  <button type="submit">Post</button>
+</div>
+</form>
+</div>
+</div>
+
+
+        <!--____________________________-->
+    </div>
+</div>  
+
+<!--Reviews-->
+<div class="r-container">
+<ul class="grid-testimonials">
+  {% for f in feedbacks %}
+    <li>
+        <div><p>&ldquo;{{f.content}}.&rdquo;<br><h6 style="font-family: Poppins;">{{f.user}} <br>({{f.timestamp}})</h6></p></div>
+        
+    </li>                 
+    {% endfor %}                                                                             
+</ul>
+</div>
+<!--Footer-->
+<footer class="footer">
+<div class="footer-container">
+  <div class="footer-row">
+    <div class="footer-col">
+      <h4>company</h4>
+      <ul>
+        <li><a href="{% url 'Home:about' %}">about us</a></li>
+        <li><a href="{% url 'Home:services' %}">our services</a></li>
+        <li><a href="{% url 'Home:contact' %}">Contact us</a></li>
+        <li><a href="{% url 'Home:gallery' %}">Gallery</a></li>
+        <li><a href="{% url 'Home:FAQ' %}">FAQ</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-col">
+      <h4>online shop</h4>
+      <ul>
+        <li><a href="{% url 'Home:shop' %}">CCTV</a></li>
+        <li><a href="{% url 'Home:shop' %}">Cameras</a></li>
+        <li><a href="{% url 'Home:shop' %}">Hickvision</a></li>
+        <li><a href="{% url 'Home:shop' %}">Shop</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Main Branch</h4>
+      <p>
+        No 12 G1 AnandhaNilayam,<br>
+        Alagiri nagar 1st Street,<br>
+        Vadapalani, Chennai- 600026.<i class="fa-solid fa-dinosaur"></i>
+      </p>
+      
+    </div>
+    <div class="footer-col">
+      <h4>follow us</h4>
+      <div class="footer-social-links">
+        <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+</footer>
+{% block script %}{% endblock script %}
+<script src="Serv.js"></script>
+<script src="{% static 'rating.js' %}"></script>
+<script src="{% static 'review.js' %}"></script>
+
+</body>
+</html>

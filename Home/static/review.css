@@ -1,0 +1,58 @@
+.r-container
+{
+
+  width: 90%;
+  margin-left: 270px;
+  marlgin-right: auto;
+  max-width: 60em;
+}
+.grid-testimonials
+{
+  overflow: hidden;
+  padding-top: 3.125em
+}
+.grid-testimonials li
+{
+    
+  float: left;
+  list-style-type: none;
+  padding-bottom: 3.125em
+}
+.grid-testimonials p
+{
+    
+  line-height: 1.5em;
+  min-height: 0px !important;
+  margin: 0;
+  text-align: center;
+}
+.grid-testimonials-citation
+{
+  color: rgb(5, 5, 5);
+  display: block;
+  font-size: 1.125em;
+  font-weight: 700;
+  margin-top: 2em;
+  text-transform: uppercase;
+  text-align: center
+}
+.grid-testimonials li div
+{
+  border-radius: 20px;
+  background: white;
+  padding: 2.125em 7.638888888888889%;
+  position: relative;
+}
+
+@media screen and (min-width: 50em) 
+{
+	.grid-testimonials li
+  {
+    margin-right: 5%;
+    width: 30%
+  }
+	.grid-testimonials li:nth-child(3n)
+  {
+    margin-right: 0
+  }
+}

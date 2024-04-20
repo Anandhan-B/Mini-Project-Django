@@ -1,0 +1,20 @@
+*{
+ box-sizing: border-box;   
+}
+.pro-one{
+    background: white;
+    border-radius: 30px;
+    overflow-x: hidden;
+}
+.pro-title{
+    font-size: 50px;
+    font-family: 'Poppins';
+    margin-top: 20px;
+}
+.pro-price{
+    font-size: 25px;
+    font-weight: bold;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+    display: inline-block;
+}

@@ -1,0 +1,62 @@
+from django.urls import path
+from django.conf import settings
+from django.contrib.auth import views as auth
+from django.conf.urls.static import static
+from . forms import changeForm,MyPasswordResetForm,MySetPasswordForm
+from . import views
+app_name = 'Home'
+urlpatterns = [
+    path('',views.homepage,name='homepages'),
+    path('services', views.services, name='services'),
+    path('shop', views.shop.as_view(), name='shop'),
+    path('product-details/<int:pk>', views.product_details.as_view(), name='productdetails'),
+    path('accountPage',views.accountPage,name='accountPage'),
+    path('accounts/login/',views.accountPage,name='accountPage'),
+    path('about', views.about, name='about'),
+    path('gallery', views.gallery.as_view(), name='gallery'),
+    path('contact', views.contact, name='contact'),
+    path('orders', views.orders, name='orders'),
+    path('frequntly-asked-questions',views.faq,name='FAQ'),
+    path('profile',views.profileView.as_view(),name='profile'),
+    path('address',views.address,name='address'),
+    path('updateAddress/<int:pk>',views.updateAddress.as_view(),name='updateAddress'),
+    path('deleteAddress/<int:pk>',views.deleteAddress.as_view(),name='deleteAddress'),
+    path('passChange',auth.PasswordChangeView.as_view(template_name='changepassword.html',form_class= changeForm,success_url='passwordchangedone'),name='passchange'),
+    path('passwordchangedone',auth.PasswordChangeDoneView.as_view(template_name='passwordchangedone.html'),name='passwordchangedone'),
+    path('logout',auth.LogoutView.as_view(next_page='Home:accountPage'),name='logout'),
+    path('addtocart',views.addtocart,name='addtocart'),
+    path('cart',views.showcart,name='showcart'),
+    path('pluscart',views.pluscart,name='pluscart'),
+    path('minuscart',views.minuscart,name='minuscart'),
+    path('removecart',views.removecart,name='removecart'),
+    path('checkout/',views.checkout.as_view(),name='checkout'),
+    path('paymentdone/',views.payment_done,name='paymentdone'),
+    #password reset
+    path("pass-reset", auth.PasswordResetView.as_view(template_name='pass-reset.html',form_class=MyPasswordResetForm), name="pass_reset"),
+    path("pass-reset/done/", auth.PasswordResetDoneView.as_view(template_name='pass-reset-done.html'), name="password_reset_done"),
+    path("pass-reset-confirm/<uidb64>/<token>/", auth.PasswordResetConfirmView.as_view(template_name='pass-reset-confirm.html',form_class=MySetPasswordForm), name="password_reset_confirm"),
+    path("pass-reset-complete/", auth.PasswordResetCompleteView.as_view(template_name='pass-reset-complete.html'), name="pass_resetcomplete"),
+    #services
+    path('services/cctv-services', views.cctv, name='CCTV'),
+    path('services/bio-services', views.bio, name='bio'),
+    path('services/assemble-services', views.assemble, name='assemble'),
+    path('services/LED-services', views.LED, name='LED'),
+    path('services/LED-board-services', views.LEDboard, name='LED-board'),
+    path('services/count-services', views.count, name='count'),
+    path('services/bill-services', views.bill, name='bill'),
+    path('services/paper-services', views.paper, name='paper'),
+    path('services/barcode-services', views.barcode, name='barcode'),
+    path('services/restaurant-services', views.restaurant, name='restaurant'),
+    path('services/textiles-services', views.textiles, name='textiles'),
+    path('services/supermarket-services', views.supermarket, name='supermarket'),
+    path('services/agency-services', views.agency, name='agency'),
+    path('services/accounting-services', views.accounting, name='accounting'),
+    path('services/webdesign-services', views.webdesign, name='webdesign'),
+    path('services/hosting-services', views.hosting, name='hosting'),
+    path('services/domin-services', views.domin, name='domin'),
+    path('services/server-services', views.server, name='server'),
+    path('services/mobile-services', views.mobile, name='mobile'),
+    path('services/bulksms-services', views.bulksms, name='bulksms'),
+    path('initiate_payment/', views.initiate_payment, name='initiate_payment'),
+    path('tpay/', views.tpay, name='tpay'),
+]+static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
